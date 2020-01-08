@@ -1,0 +1,139 @@
+<div class="blackground" align="center" >
+  <div class="form">
+
+    <h1>รายการข้อเสนอ</h1><br>
+    <p>ข้อเสนอที่ได้รับ</p>
+
+
+    <table mat-table [dataSource]="ProposalReceiver" class ="mat-elevation-z8">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element ; let i = index">{{i+1}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="itemReceiveName">
+        <th mat-header-cell *matHeaderCellDef> สินค้าของคุณ </th>
+        <td mat-cell *matCellDef="let element"> {{element.itemReceiveName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="itemOfferName">
+        <th mat-header-cell *matHeaderCellDef> แลกกับ </th>
+        <td mat-cell *matCellDef="let element"> {{element.itemOfferName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="userOfferName">
+        <th mat-header-cell *matHeaderCellDef> เจ้าของ </th>
+        <td mat-cell *matCellDef="let element"> {{element.userOfferName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> รายละเอียด </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="option">
+        <th mat-header-cell *matHeaderCellDef> วิธีการแลกเปลี่ยน </th>
+        <td mat-cell *matCellDef="let element"> {{element.tradeOption.optionName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="confirm">
+        <th mat-header-cell *matHeaderCellDef style = "width:20%"> การตอบรับข้อเสนอ </th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" (click)="confirm(element)">ตกลง</button> </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="dataForReceiver"></tr>
+      <tr mat-row *matRowDef="let row; columns: dataForReceiver;"></tr>
+    </table>
+
+
+    <br><br><br>
+    <p>ข้อเสนอที่ทำการยื่น</p>
+
+    <table mat-table [dataSource]="ProposalOffering" class ="mat-elevation-z8">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element ; let i = index">{{i+1}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="itemOfferName">
+        <th mat-header-cell *matHeaderCellDef> สินค้าของคุณ </th>
+        <td mat-cell *matCellDef="let element"> {{element.itemOfferName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="itemReceiveName">
+        <th mat-header-cell *matHeaderCellDef> แลกกับ </th>
+        <td mat-cell *matCellDef="let element"> {{element.itemReceiveName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="userReceiveName">
+        <th mat-header-cell *matHeaderCellDef> เจ้าของ </th>
+        <td mat-cell *matCellDef="let element"> {{element.userReceiveName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> รายละเอียด </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="option">
+        <th mat-header-cell *matHeaderCellDef> วิธีการแลกเปลี่ยน </th>
+        <td mat-cell *matCellDef="let element"> {{element.tradeOption.optionName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> สถานะ </th>
+        <td mat-cell *matCellDef="let element"> {{element.proposalStatus.statusName}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="dataForOffering"></tr>
+      <tr mat-row *matRowDef="let row; columns: dataForOffering;"></tr>
+    </table>
+
+
+    <br><br><br>
+
+    <p>ข้อเสนอที่เสร็จสิ้นแล้ว</p>
+    <table mat-table [dataSource]="ProposalOffered" class ="mat-elevation-z8">
+
+      <ng-container matColumnDef="no">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element ; let i = index">{{i+1}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="itemOfferName">
+        <th mat-header-cell *matHeaderCellDef> สินค้าของคุณ </th>
+        <td mat-cell *matCellDef="let element"> {{element.itemOfferName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="itemReceiveName">
+        <th mat-header-cell *matHeaderCellDef> แลกกับ </th>
+        <td mat-cell *matCellDef="let element"> {{element.itemReceiveName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="userReceiveName">
+        <th mat-header-cell *matHeaderCellDef> เจ้าของ </th>
+        <td mat-cell *matCellDef="let element"> {{element.userReceiveName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> รายละเอียด </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="option">
+        <th mat-header-cell *matHeaderCellDef> วิธีการแลกเปลี่ยน </th>
+        <td mat-cell *matCellDef="let element"> {{element.tradeOption.optionName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="review">
+        <th mat-header-cell *matHeaderCellDef style = "width:20%"> รีวิว </th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary" (click)="review(element)">รีวิว</button> </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="dataForOffered"></tr>
+      <tr mat-row *matRowDef="let row; columns: dataForOffered;"></tr>
+    </table>
+  </div>
+</div>

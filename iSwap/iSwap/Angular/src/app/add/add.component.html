@@ -1,0 +1,43 @@
+<div class="blackground" align="center" >
+  <div class="form">
+    
+    <h1>เพิ่มสินค้า</h1>
+    <br/>
+    <p>user:{{user}}</p>
+    <br/>
+    <mat-form-field>
+      <input matInput placeholder="url รูปภาพ.jpg" [(ngModel)]="myitem.img" >
+    </mat-form-field>
+    <a mat-raised-button href="//www.img.in.th" target="_blank" color="accent" >เว็บฝากรูป</a>
+    <br/>
+
+    <mat-form-field class="full-width" >
+      <input [(ngModel)]="myitem.itemName" matInput  placeholder="ชื่อสินค้า" class = "text">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-select [(ngModel)]="myitem.typName"  placeholder="หมวดหมู่" class = "text">
+        <mat-option *ngFor="let typ of typs" [value]="typ.categoryname">
+          {{typ.categoryname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <mat-select placeholder="#แฮชแท็ก" [(ngModel)]="myitem.hashtagName" class = "text" >
+          <mat-option *ngFor="let hashtag of hashtags" [value]="hashtag.hashtagname" > 
+            {{hashtag.hashtagname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <textarea [(ngModel)]="myitem.desrciptionInput" matInput placeholder="รายละเอียด"></textarea>
+    </mat-form-field>
+
+  <div class="full-width"  >
+      <button mat-flat-button (click)="postItem()" >ยืนยัน</button>
+    </div>
+  </div>
+  
+ </div>

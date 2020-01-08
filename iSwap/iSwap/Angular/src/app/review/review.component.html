@@ -1,0 +1,36 @@
+<div class="blackground" align="center">
+  <div class="form">
+    <div align="center">
+      <p><font size="10">ผู้ใช้งาน</font></p>
+      <p><font size="5">{{userFirstname}}</font></p>
+    </div>
+
+    <br>
+   <div align="center">
+    <p><font size="10">ให้คะแนนผู้ใช้</font></p>
+     <br>
+     <br>
+     <mat-card class="example-card">
+       <mat-card-header>
+         <mat-select placeholder="ระดับความพึงพอใจ"[(ngModel)]="levelIdSelect"  >
+           <mat-option *ngFor="let level of levels" [value]="level.id">
+             {{level.levelname}}
+           </mat-option>
+         </mat-select>
+       </mat-card-header>
+     </mat-card>
+     <br>
+    <br>
+    <mat-star-rating [rating]="rating"  [starCount]="5" [color]="warn" (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+    </div>
+    <br>
+    <br>
+    <div class="example-form">
+      <mat-form-field class="example-full-width">
+        <textarea input matInput [(ngModel)]="comments" type="text" placeholder="เขียนรีวิวอะไรบางอย่างสิ....."></textarea>
+      </mat-form-field>
+    </div>
+    <button mat-flat-button (click)="save()">ส่ง</button>
+    </div>
+  </div>
+

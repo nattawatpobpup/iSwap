@@ -1,0 +1,48 @@
+<div class="blackground" align="center" >
+  <div class="form">
+    <h1>กำหนดสถานที่นัดรับ</h1>
+    <p>เติมข้อมูลในแบบฟอร์มนี้เพื่อนัดรับสินค้า</p>
+    <hr>
+
+    <mat-form-field class="half-width">
+      <mat-label>วันนัด</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="เดือน/วัน/ปี" [(ngModel)]="meetingData.dateSelect">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="half-width">
+      <mat-select placeholder="เวลานัด" [(ngModel)]="meetingData.timeSelect" name="timename">
+        <mat-option *ngFor="let time of times" [value]="time.timename">
+          {{time.timename}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-select placeholder="สถานที่นัด"[(ngModel)]="meetingData.landmarkSelect" name="provincename">
+        <mat-option *ngFor="let province of provinces" [value]="province.provincename">
+          {{province.provincename}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" >
+      <mat-label>เบอร์โทร</mat-label>
+      <input matInput placeholder="ตัวอย่าง: 0891234567" [(ngModel)]="meetingData.telephoneInput">
+    </mat-form-field>
+
+    <mat-form-field class="full-width" >
+      <mat-label>ติดต่ออื่นๆ</mat-label>
+      <input matInput placeholder="ตัวอย่าง: Email:abc@cmail.com or Facebook:สมควร รถซิ่ง"[(ngModel)]="meetingData.callotherInput" >
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>รายละเอียดเพิ่มเติม</mat-label>
+      <textarea matInput placeholder="ตัวอย่าง: หน้าเซเว่น ประตู1 มทส." [(ngModel)]="meetingData.textInput"></textarea>
+    </mat-form-field>
+
+    <br>
+    <button mat-flat-button color="primary" (click)="save()" >ถัดไป</button>
+  </div>
+</div>

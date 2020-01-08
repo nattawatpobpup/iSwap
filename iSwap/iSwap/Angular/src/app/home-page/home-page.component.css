@@ -1,0 +1,23 @@
+.blackground{
+  width: 100%;
+  min-height : 100vh;
+  background-color:  #d7d7c1;
+}
+.form{
+  padding-top : 10px ;
+  padding-bottom : 10px;
+  min-height : 100vh;
+  width: 70%;
+  background-color:  #ffffff;
+}
+.half-width{
+  width: 35%;
+}
+.full-width{
+  width: 70%;
+}
+hr {
+  border: 1px solid #cccccc;
+  width: 70%;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,63 @@
+<div class="blackground" align = "center" >
+  <div class="form">
+
+    <h1 align = "left" >ข้อมูลการจัดส่ง (Shipping Infomation)</h1>
+    <p align = "left" >กรอกรายละเอียดข้อมูลการจัดส่ง</p>
+    <hr>
+
+    <mat-form-field class="full-width" color="warm" >
+      <input matInput color="primary" placeholder="ชื่อผู้ส่ง" [(ngModel)]="shippingData.shipperInput">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="ชื่อผู้รับ" [(ngModel)]="shippingData.receiverInput">
+    </mat-form-field>
+
+
+    <mat-form-field class="full-width">
+      <input matInput [matDatepicker]="picker" placeholder="วันที่จัดส่ง EX. MM/DD/YYYY" [(ngModel)]="shippingData.dateInput">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="ที่อยู่ที่จัดส่งไป" [(ngModel)]="shippingData.addressInput">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-select placeholder="จังหวัด" name="provincename" [(ngModel)]="shippingData.provincenameSelect"> 
+        <mat-option *ngFor="let province of provinces" [value]="province.id">
+          {{province.provincename}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput #postalCode maxlength="5" placeholder="รหัสไปรษณีย์" [(ngModel)]="shippingData.postcodeInput">
+      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput #TrackingCode maxlength="13" placeholder="หมายเลขติดตามพัสดุ (Tracking No.)" [(ngModel)]="shippingData.trackingNoInput">
+      <mat-hint align="end">{{TrackingCode.value.length}} / 13</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="หน่วยงานที่รับผิดชอบ" [(ngModel)]="shippingData.agencyInput">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-select placeholder="สถานะ" name="shippingStatusName" [(ngModel)]="shippingData.shippingstatusesSelect"> 
+        <mat-option *ngFor="let ShippingStatus of shippingstatuses" [value]="ShippingStatus.id"> 
+          {{ShippingStatus.shippingStatusName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="full-width">
+      <button mat-flat-button (click)="save()" >ยืนยัน</button>
+    </div>
+
+  </div>
+</div>

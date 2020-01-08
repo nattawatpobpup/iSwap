@@ -1,0 +1,101 @@
+<div class="blackground" align = "center" >
+  <div class="form">
+    <h1 align = "left" >สถานะการจัดส่ง (Shipping Status)</h1>
+
+    <p align = "left" >อัพเดทสถานะการจัดส่ง </p>
+    <hr>
+
+    <table mat-table [dataSource]="shippingInfo" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element" >{{element.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> วันที่ </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="shipper">
+        <th mat-header-cell *matHeaderCellDef> ชื่อผู้ส่ง </th>
+        <td mat-cell *matCellDef="let element"> {{element.shipper}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="receiver">
+        <th mat-header-cell *matHeaderCellDef> ชื่อผู้รับ </th>
+        <td mat-cell *matCellDef="let element"> {{element.receiver}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> ที่อยู่ที่ส่งไป </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="agency">
+        <th mat-header-cell *matHeaderCellDef> หน่วยงาน </th>
+        <td mat-cell *matCellDef="let element"> {{element.agency}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="postcode">
+        <th mat-header-cell *matHeaderCellDef> รหัสไปรษณีย์ </th>
+        <td mat-cell *matCellDef="let element"> {{element.postcode}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="trackingNo">
+        <th mat-header-cell *matHeaderCellDef> Tracking No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.trackingNo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="shippingstatus">
+        <th mat-header-cell *matHeaderCellDef> สถานะการจัดส่ง </th>
+        <td mat-cell *matCellDef="let element"> {{element.shippingStatus.shippingStatusName}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef> หมายเหตุ </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-flat-button (click)= "save(element.id,element.shippingProposal.id)"> อัพเดท </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: dataColumns;"></tr>
+    </table>
+
+    <!-- <p align = "left" >รายละเอียดการจัดส่งสินค้า </p>
+    <hr> -->
+
+    <!-- <table mat-table [dataSource]="shippingInfo" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="No">
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element" >{{element.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> วันที่ </th>
+          <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="agency">
+          <th mat-header-cell *matHeaderCellDef> หน่วยงาน </th>
+          <td mat-cell *matCellDef="let element"> {{element.agency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="trackingNo">
+          <th mat-header-cell *matHeaderCellDef> Tracking No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.trackingNo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="shippingstatus">
+          <th mat-header-cell *matHeaderCellDef> สถานะการจัดส่ง </th>
+          <td mat-cell *matCellDef="let element"> {{element.shippingStatus.shippingStatusName}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table> -->
+
+  </div>
+</div>

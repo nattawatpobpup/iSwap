@@ -1,0 +1,30 @@
+<div class="blackground" align="center">
+    <div class="form">
+        <div align="center">
+            <p>
+                <font size="10">ผู้ใช้งาน</font>
+            </p>
+            <mat-card class="example-card">
+              <div align="center">
+                <font size="5" >{{username}}</font>
+              </div>
+            </mat-card>
+
+            <p>
+                <font size="10">การให้คะแนนฟีตเจอร์</font>
+            </p>
+            <mat-card class="example-card">
+                <div align="left">
+                    <p>{{comment}}</p>
+                    <p>วันที่ : {{formatdate}}</p>
+                    <p>ระดับความพึงพอใจ : {{level}}</p>
+                    <p><mat-star-rating [rating]="rating"  [starCount]="5" [color]="warn"></mat-star-rating></p>
+                </div>
+            </mat-card>
+          <br>
+          <br>
+          <br>
+
+        </div>
+    </div>
+</div>

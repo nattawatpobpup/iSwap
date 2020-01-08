@@ -1,0 +1,76 @@
+
+<div class="blackground" align="center" >
+  <div class="form">
+    <h1>สมัครสมาชิก</h1>
+    <p>เติมข้อมูลในแบบฟอร์มนี้เพื่อสมัครสมาชิก</p>
+    <hr>
+    <mat-form-field class="half-width" >
+      <mat-label>ชื่อ</mat-label>
+      <input matInput placeholder="กรอก ชื่อ" [(ngModel)]="registerData.firstnameInput">
+    </mat-form-field>
+    <mat-form-field class="half-width" >
+      <mat-label>นามสกุล</mat-label>
+      <input matInput placeholder="กรอก นามสกุล" [(ngModel)]="registerData.lastnameInput">
+    </mat-form-field>
+
+    <mat-form-field class="half-width">
+      <mat-label>วันเกิด</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" [(ngModel)]="registerData.brithdaySelect">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="half-width">
+      <mat-select placeholder="เพศ" [(ngModel)]="registerData.gendertypeSelect" name="gendertype">
+        <mat-option *ngFor="let gender of genders" [value]="gender.gendertype">
+          {{gender.gendertype}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-select placeholder="อาชีพ" [(ngModel)]="registerData.careernameSelect" name="careername" >
+        <mat-option *ngFor="let career of careers" [value]="career.careername">
+          {{career.careername}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>ชื่อผู้ใช้</mat-label>
+      <input matInput placeholder="สำหรับเข้าสู่ระบบ" [(ngModel)]="registerData.usernameInput" >
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>รหัสผ่าน</mat-label>
+      <input matInput placeholder="สำหรับเข้าสู่ระบบ" [(ngModel)]="registerData.passwordInput">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-select placeholder="จังหวัด" [(ngModel)]="registerData.provincenameSelect" name="provincename" >
+        <mat-option *ngFor="let province of provinces" [value]="province.provincename">
+          {{province.provincename}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>ที่อยู่</mat-label>
+      <textarea matInput placeholder="กรอก ที่อยู่" [(ngModel)]="registerData.addressInput" ></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="half-width">
+      <mat-label>รหัสไปรษณีย์</mat-label>
+      <input matInput placeholder="XXXXX" [(ngModel)]="registerData.postcodeInput">
+    </mat-form-field>
+
+    <mat-form-field class="half-width">
+      <mat-label>หมายเลขโทรศัพท์</mat-label>
+      <input matInput placeholder="XXXXXXXXXX" [(ngModel)]="registerData.phonenumInput">
+    </mat-form-field>
+
+    <br>
+    <button mat-flat-button (click)="save()" >สมัครสมาชิก</button>
+    <p>เคยสมัครสมาชิกแล้ว <a href="login">เข้าสู่ระบบ</a></p>
+  </div>
+</div>

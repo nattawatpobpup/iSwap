@@ -1,0 +1,29 @@
+<div class="blackground" align="center">
+  <div class="form">
+    <h1>ยื่นข้อเสนอแลกเปลี่ยนสินค้า</h1>
+    <hr>
+    <label>เจ้าของสินค้า :</label><label style="margin-left:20px">{{userReceive}}</label><br><br>
+    <label>สินค้า :</label><label style="margin-left:20px">{{itemReceive}}</label><br><br>
+    <mat-form-field class="full-width">
+      <mat-select placeholder="สินค้าของคุณ" [(ngModel)]="ProposalData.OfferItemSelect" name="OfferItem">
+        <mat-option *ngFor="let item of itemsOffer" [value]="item.id">
+          {{item.itemName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="ex-width">
+      <textarea matInput placeholder="รายละเอียดเพิ่มเติม : " [(ngModel)]="ProposalData.DescriptionInput"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="half-width">
+      <mat-select placeholder="เสนอวิธีการแลกเปลี่ยน" [(ngModel)]="ProposalData.OptionNameSelect" name="Option">
+        <mat-option *ngFor="let option of options" [value]="option.id">
+          {{option.optionName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-flat-button (click)="save()">ยื่นข้อเสนอ</button>
+  </div>
+</div>

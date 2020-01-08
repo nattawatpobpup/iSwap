@@ -1,0 +1,44 @@
+<div class="blackground" align="center" >
+  <div class="form">
+    <table mat-table [dataSource]="Profiles" class ="mat-elevation-z8">
+      <ng-container matColumnDef="no">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element ; let i = index">{{i+1}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstname">
+        <th mat-header-cell *matHeaderCellDef> First name </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastname">
+        <th mat-header-cell *matHeaderCellDef> Last name </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="brithday">
+        <th mat-header-cell *matHeaderCellDef> Brithday </th>
+        <td mat-cell *matCellDef="let element"> {{element.brithday}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="postcode">
+        <th mat-header-cell *matHeaderCellDef> Post code </th>
+        <td mat-cell *matCellDef="let element"> {{element.postcode}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="phonenum">
+        <th mat-header-cell *matHeaderCellDef> Phone number </th>
+        <td mat-cell *matCellDef="let element"> {{element.phonenum}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="dataColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: dataColumns;"></tr>
+    </table>
+  </div>
+</div>
